@@ -26,10 +26,10 @@ git remote -v
 
 #põhikasutamine
 
-a) oabe fail jälgimisele
+a) lisa fail jälgimisele
 git add failinimi
 
-b) lisa kirjeldus muudatuse khta
+b) lisa kirjeldus muudatuse kohta
 git commit -m "lühikirjeldus"
 
 c) lisa kaugrepositooriumi
