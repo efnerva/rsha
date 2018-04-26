@@ -5,4 +5,15 @@ echo "specify name of the new user"
 read name
 	useradd -m $name
 	passwd -d $name
-exit
+echo "user successfully created"
+echo "would you like to add more users (yes/no)?"
+read userplus
+if
+	[ $userplus = y ]; then
+	/home/ef/rsha/praks2/add_user
+elif
+	[ $userplus = yes ]; then	
+	/home/ef/rsha/praks2/add_user
+else
+	exit
+fi
