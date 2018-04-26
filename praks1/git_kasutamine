@@ -1,0 +1,17 @@
+#root kasutajana
+apt-get install git
+#tavakasutajana emsakondsel kasutamisel
+
+a) seadista kasutajanimi, email, editor
+git config --global user.name "Ees Perenimi"
+´git config --global user.email ef-nei-net.nerva@khk.ee
+git config --global core.editor vim
+
+b) loo kataloog, kus hakkad skriptima
+mkdir rsha
+
+c) sisene kausta
+cd rsha
+
+d)tekita lokaalne repositoorium git süsteemi jaoks antud kaustas
+git init
