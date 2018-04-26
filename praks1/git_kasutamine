@@ -4,7 +4,7 @@ apt-get install git
 
 a) seadista kasutajanimi, email, editor
 git config --global user.name "Ees Perenimi"
-´git config --global user.email ef-nei-net.nerva@khk.ee
+git config --global user.email ef-nei-net.nerva@khk.ee
 git config --global core.editor vim
 
 b) loo kataloog, kus hakkad skriptima
@@ -16,9 +16,21 @@ cd rsha
 d)tekita lokaalne repositoorium git süsteemi jaoks antud kaustas
 git init
 
-# remote seadistamine
+#remote seadistamine
+
 a) git remote add nimi aadress
 git remote add skriptimine https://github.com/kasutajanimi/reponimi.git
 
 b) git remote kontroll
 git remote -v
+
+#põhikasutamine
+
+a) oabe fail jälgimisele
+git add failinimi
+
+b) lisa kirjeldus muudatuse khta
+git commit -m "lühikirjeldus"
+
+c) lisa kaugrepositooriumi
+git push -uf rsha master 
