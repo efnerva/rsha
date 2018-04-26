@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#add user, no password, add home directory
+echo "specify name of the new user"	
+read name
+	useradd -m $name
+	passwd -d $name
+exit
