@@ -1,0 +1,9 @@
+#!/bin/bash
+ls -l /home/
+echo "specify name of the user"
+echo "ctrl + c to quit"
+read name
+userdel -r $name
+echo "user removed!"
+/home/ef/rsha/praks2/remove_user
+
