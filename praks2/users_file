@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "specify the file from which users will be taken from"
 read filename
 /home/ef/rsha/praks2/add_user ./$filename

@@ -1,8 +1,13 @@
 #!/bin/bash
 #add user, no password, add home directotory
 filename=$1
-for i in `cat $filename`
+for name in `cat $filename | cut -f1 -d:`
 do
-	useradd -m $i
-	passwd -d $i
+	useradd -m $name
+
+for pass in `cat $filename`
+do
+	echo "$pass" | chpasswd
+
+done
 done
