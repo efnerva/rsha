@@ -1,8 +1,8 @@
 #!/bin/bash
-#add user, no password, add home directory
-
-for file in "$@"
+#add user, no password, add home directotory
+filename=$1
+for i in `cat $filename`
 do
-	useradd -m $name
-	passwd -d $name
+	useradd -m $i
+	passwd -d $i
 done
