@@ -1,0 +1,7 @@
+#!/bin/bash
+
+read filename
+
+
+/home/ef/rsha/praks2/add_user $@
+
