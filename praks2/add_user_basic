@@ -1,8 +1,0 @@
-#!/bin/bash
-
-#add user, no password, add home directory	
-for file in "$@"
-do
-	useradd -m $@
-	passwd -d $@
-done
