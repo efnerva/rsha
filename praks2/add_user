@@ -3,11 +3,13 @@
 filename=$1
 for name in `cat $filename | cut -f1 -d:`
 do
-	useradd -m $name
+	sudo useradd -m $name
 
-for pass in `cat $filename`
+for pass in `cat $filename | cut -f2 -d:`
 do
-	echo "$pass" | chpasswd
+echo $name
+echo $pass | passwd --stdin "$name"
+echo "User $username’s password changed!"
 
 done
 done
