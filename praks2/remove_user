@@ -2,8 +2,11 @@
 ls -l /home/
 echo "specify name of the user"
 echo "ctrl + c to quit"
-read name
-userdel -r $name
-echo "user removed!"
-/home/ef/rsha/praks2/remove_user
+#read name
+#userdel -r $name
+userdel -r kasutaja1
+userdel -r kasutaja2
+userdel -r kasutaja3
+echo "users removed!"
+#/home/ef/rsha/praks2/remove_user
 
