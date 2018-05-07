@@ -1,15 +1,10 @@
 #!/bin/bash
 #add user, no password, add home directotory
 filename=$1
-for name in `cat $filename | cut -f1 -d:`
+for rida in `cat $filename`
 do
+	name=`echo $rida | cut -f1 -d:`
 	sudo useradd -m $name
-
-for pass in `cat $filename | cut -f2 -d:`
-do
-echo $name
-echo $pass | passwd --stdin "$name"
-echo "User $username’s password changed!"
-
-done
+	echo "$rida" | chpasswd
+	echo "User $name’s password changed!"
 done
