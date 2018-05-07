@@ -3,15 +3,15 @@
 
 #specify the name of the in which usernames are specified
 filename=$1
-#specify the name of the file in which users passwords are specified
-filepass=$2
 
-paste -d":" $filename $filepass > users.tmp
-
-for rida in `cat users.tmp`
+for user in `cat $filename`
 do
-	name=`echo $rida | cut -f1 -d:`
-	sudo useradd -m $name
-	echo "$rida" | chpasswd
-	echo "User $name’s password changed!"
+	sudo useradd -m $user
+	openssl rand -base64 32 >> password.tmp
+	password=`cat password.tmp`
+	rm password.tmp
+	echo "$user:$password" >> .user_passwords.txt
+	chmod 700 .user_passwords.txt
+	echo "$user:$password" | chpasswd
+	echo "$user's password is $password"
 done
