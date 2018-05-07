@@ -1,6 +1,8 @@
 #!/bin/bash
+#Check if Apache has been installed, if not, execute apacheinstall
+./apacheinstall
 
-#Check if Apache is already installed
+#Check if PHP is already installed
 phpcheck=$(dpkg-query -W -f='${Status}' php | grep -c 'ok installed')
 
 if [ "$phpcheck" = "1" ]; then
