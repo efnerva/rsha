@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#Check if Apache is already installed
+apachecheck=$(dpkg-query -W -f='${Status}' apache2 | grep -c 'ok installed')
+
+if [ "$apachecheck" = "1" ]; then
+	echo "Apache has already been installed on this system"
+else
+	echo "Installing Apache"
+	apt-get install apache2 libapache2-mod-php7.0 --assume-yes
+fi
