@@ -1,7 +1,14 @@
 #!/bin/bash
 #add user, no password, add home directotory
+
+#specify the name of the in which usernames are specified
 filename=$1
-for rida in `cat $filename`
+#specify the name of the file in which users passwords are specified
+filepass=$2
+
+paste -d":" $filename $filepass > users.tmp
+
+for rida in `cat users.tmp`
 do
 	name=`echo $rida | cut -f1 -d:`
 	sudo useradd -m $name
