@@ -1,0 +1,38 @@
+
+#!/bin/bash
+#check if required packages have been installed, if not,
+#activates a script that will install them
+
+#Check if Apache has already been installed
+apachecheck=$(dpkg-query -W -f='${Status}' apache2 | grep -c 'ok installed')
+
+#Check if PHP has already been installed
+phpcheck=$(dpkg-query -W -f='${Status}' php | grep -c 'ok installed')
+
+#Check if mysql has already been installed
+mysqlcheck=$(dpkg-query -W -f='${Status}' mysql | grep -c 'ok installed')
+
+#Check if phpmyadmin has already been installed
+phpmycheck=$(dpkg-query -W -f='${Status}' phpmyadmin | grep -c 'ok installed')
+
+echo "check if required packages have been installed"
+
+if [ "$apachecheck" = "0" ]; then
+	echo "Apache needs to be installed on this system before proceeding"
+	./apacheinstall
+
+elif [ "$phpcheck" = "0" ]; then
+	echo "PHP needs to be installed on this system before proceeding"
+	./apacheinstall
+
+elif [ "$mysqlcheck" = "0" ]; then
+	echo "MySQL needs to be installed on this system before proceeding"
+	./mysqlinstall
+
+elif [ "$phpmycheck" = "0" ]; then
+	echo "phpMyAdmin needs to be installed on this system before proceeding"
+	./phpmyadmininstall
+else
+	echo "The system is ready for Wordpress installation!"
+fi
+
