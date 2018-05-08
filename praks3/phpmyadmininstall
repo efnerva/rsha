@@ -1,0 +1,13 @@
+#!/bin/bash
+#Check if Apache has been installed, if not, execute apacheinstall
+./apacheinstall
+
+#Check if phpmyadmin has already been installed
+phpmycheck=$(dpkg-query -W -f='${Status}' phpmyadmin | grep -c 'ok installed')
+
+if [ "$phpmycheck" = "1" ]; then
+	echo "phpMyAdmin has already been installed on this system"
+else
+	echo "Installing phpMyAdmin"
+	apt-get install phpmyadmin php-mbstring php-gettext --assume-yes
+fi
