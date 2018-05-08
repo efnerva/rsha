@@ -1,7 +1,6 @@
 #!/bin/bash
 #Check if Apache, PHP have been installed, if not, execute apacheinstall
 ./apacheinstall
-./phpinstall
 
 #Check if mysql has been already installed
 mysqlcheck=$(dpkg-query -W -f='${Status}' mysql | grep -c 'ok installed')
@@ -10,6 +9,6 @@ if [ "$mysqlcheck" = "1" ]; then
 	echo "mysql has already been installed on this system"
 else
 	echo "Installing mysql"
-	apt-get install mysql-server php-mysql --assume-yes
+	apt-get install mysql-server --assume-yes
 	mysql --version
 fi
